@@ -1,43 +1,68 @@
-<h1 id="grace-dress-making">Grace Dress Making</h1>
-<ul>
-<li>Address: Shop No. 37, GMD Market, Ramnagar Akola</li>
-<li>Mob. No.: +91 9850282551</li>
-<li>Shop timing: 10 am to 4 pm</li>
-<li><strong>Speciality</strong>: Stitching Women’s Ethnic Wear</li>
-</ul>
-<h2 id="gallery">Gallery</h2>
-<table>
-<tr>
-<td>
-<img src="img1.jpeg" >
-</td>
-<td>
-<img src="img2.jpeg">
-</td>
-<td>
-<img src="img3.jpeg">
-</td>
-</tr>
-<tr>
-<td>
-<img src="img1.jpeg" >
-</td>
-<td>
-<img src="img2.jpeg">
-</td>
-<td>
-<img src="img3.jpeg">
-</td>
-</tr>
-<tr>
-<td>
-<img src="img1.jpeg" >
-</td>
-<td>
-<img src="img2.jpeg">
-</td>
-<td>
-<img src="img3.jpeg">
-</td>
-</tr>
-</table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grace Dress Making</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header-card">
+            <h1 id="grace-dress-making">Grace Dress Making</h1>
+            <ul class="contact-info">
+                <li><strong>Address:</strong> Shop No. 37, GMD Market, Ramnagar Akola</li>
+                <li><strong>Mob. No.:</strong> <a href="tel:+919850282551">+91 9850282551</a></li>
+                <li><strong>Shop timing:</strong> 10 am to 4 pm</li>
+                <li class="speciality"><strong>Speciality:</strong> Stitching Women's Ethnic Wear</li>
+            </ul>
+        </header>
+
+        <main>
+            <h2 id="gallery" class="section-title">Gallery</h2>
+            
+            <div class="slider-container">
+                <div class="slider" id="slider">
+                    <img src="img1.jpeg" alt="Grace Dress Making Gallery Image 1" class="slide">
+                    <img src="img2.jpeg" alt="Grace Dress Making Gallery Image 2" class="slide">
+                    <img src="img3.jpeg" alt="Grace Dress Making Gallery Image 3" class="slide">
+                    <img src="img1.jpeg" alt="Grace Dress Making Gallery Image 4" class="slide">
+                    <img src="img2.jpeg" alt="Grace Dress Making Gallery Image 5" class="slide">
+                    <img src="img3.jpeg" alt="Grace Dress Making Gallery Image 6" class="slide">
+                </div>
+                
+                <button class="nav-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="nav-btn next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+
+        function moveSlide(direction) {
+            const slider = document.getElementById('slider');
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+
+            slideIndex += direction;
+
+            // Loop back to start or end if boundaries are crossed
+            if (slideIndex < 0) {
+                slideIndex = totalSlides - 1;
+            } else if (slideIndex >= totalSlides) {
+                slideIndex = 0;
+            }
+
+            // Move the slider
+            const offset = -slideIndex * 100;
+            slider.style.transform = `translateX(${offset}%)`;
+        }
+    </script>
+</body>
+</html>
